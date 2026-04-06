@@ -6,3 +6,10 @@
 /WebApplication1/bin/Debug/net8.0
 /WebApplication1/obj
 /WebApplication1/appsettings.Development.json
+/Common/bin/Debug/net8.0
+/Common/obj
+/Data/bin/Debug/net8.0
+/Data/obj
+/Services/bin/Debug/net8.0
+/Services/obj
+/WebApplication1/.vs/CopilotSnapshots/B38F4CD9AFB5094F982C87EAA9EA2613
