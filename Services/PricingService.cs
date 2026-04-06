@@ -1,8 +1,9 @@
 using Common.Models;
+using Common.Models;
 
 namespace Services;
 
-public sealed class PricingService
+public sealed class PricingService : IPricingService
 {
     public (StudentStatus Status, decimal FinalPrice) CalculateFinalPrice(Student student, Course course)
     {
@@ -11,9 +12,9 @@ public sealed class PricingService
         var premiumByStatus = course.IsPremium
             ? status switch
             {
-                StudentStatus.New => 1.2m,
-                StudentStatus.Returning => 1.1m,
-                StudentStatus.VIP => 0.5m,
+                StudentStatus.NewStudent => 1.2m,
+                StudentStatus.ReturningStudent => 1.1m,
+                StudentStatus.VIPStudent => 0.5m,
                 _ => 1.0m
             }
             : 1.0m;
@@ -33,11 +34,11 @@ public sealed class PricingService
     private static StudentStatus GetStatus(int previousEnrollments)
     {
         if (previousEnrollments <= 0)
-            return StudentStatus.New;
+            return StudentStatus.NewStudent;
 
         if (previousEnrollments <= 2)
-            return StudentStatus.Returning;
+            return StudentStatus.ReturningStudent;
 
-        return StudentStatus.VIP;
+        return StudentStatus.VIPStudent;
     }
 }

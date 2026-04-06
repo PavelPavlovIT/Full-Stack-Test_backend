@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddSingleton<AppDataStore>();
-builder.Services.AddSingleton<PricingService>();
+builder.Services.AddSingleton<IPricingService, PricingService>();
 
 var app = builder.Build();
 
@@ -26,8 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 app.UseCors("Frontend");
+app.UseHttpsRedirection();
 
 app.MapControllers();
 

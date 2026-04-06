@@ -10,9 +10,9 @@ namespace WebApplication1.Controllers;
 public sealed class InvoicesController : ControllerBase
 {
     private readonly AppDataStore _store;
-    private readonly PricingService _pricing;
+    private readonly IPricingService _pricing;
 
-    public InvoicesController(AppDataStore store, PricingService pricing)
+    public InvoicesController(AppDataStore store, IPricingService pricing)
     {
         _store = store;
         _pricing = pricing;
